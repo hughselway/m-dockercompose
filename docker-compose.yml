@@ -1,15 +1,15 @@
 version: '3.3'
 services:
   m-game-engine:
-    image: m-game-engine:latest
+    image: emailtovamos/m-game-engine:v1
     ports:
      - "60051:60051"
   m-highscore:
-    image: m-highscore:latest
+    image: emailtovamos/m-highscore:v1
     ports:
      - "50051:50051"
   m-bff:
-    image: m-bff:latest
+    image: emailtovamos/m-bff:v1
     entrypoint:
     - ./binary
     - --address-m-game-engine=m-game-engine:60051
@@ -17,6 +17,6 @@ services:
     ports:
      - "8081:8081"
   m-frontend:
-    image: m-frontend:latest
+    image: emailtovamos/m-frontend:v1
     ports:
      - "8086:80"
