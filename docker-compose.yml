@@ -8,20 +8,21 @@ services:
     image: m-highscore:v1
     ports:
      - "50051:50051"
+  m-borderchange:
+    image: m-borderchange:v1
+    ports:
+      - "50052:50052"
+
   m-bff:
     image: m-bff:v1
     entrypoint:
     - ./binary
     - --address-m-game-engine=m-game-engine:60051
     - --address-m-highscore=m-highscore:50051
-    - --address-m-borderchange=m-borderchange:50052
+    - --address-m-border-change=m-borderchange:50052
     ports:
      - "8081:8081"
   m-frontend:
     image: m-frontend:v1
     ports:
      - "8086:80"
-  m-borderchange:
-    image: m-borderchange:v1
-    ports:
-      - "50052:50052"
